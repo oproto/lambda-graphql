@@ -497,7 +497,6 @@ public partial class GraphQLSchemaGenerator : IIncrementalGenerator
                 var paramType = parameter.Type.ToDisplayString();
                 if (paramType.Contains("ILambdaContext"))
                 {
-                    resolverInfo.UsesLambdaContext = true;
                     continue;
                 }
 

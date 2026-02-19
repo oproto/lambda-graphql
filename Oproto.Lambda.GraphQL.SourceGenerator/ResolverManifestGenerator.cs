@@ -12,6 +12,32 @@ namespace Oproto.Lambda.GraphQL.SourceGenerator;
 public static class ResolverManifestGenerator
 {
     /// <summary>
+    /// The full-context JS resolver code emitted for all unit resolvers.
+    /// Sends the complete AppSync context as the Lambda payload.
+    /// </summary>
+    private const string FullContextResolverCode =
+        "export function request(ctx) {\n" +
+        "  return {\n" +
+        "    operation: 'Invoke',\n" +
+        "    payload: {\n" +
+        "      arguments: ctx.arguments,\n" +
+        "      source: ctx.source,\n" +
+        "      identity: ctx.identity,\n" +
+        "      info: ctx.info,\n" +
+        "      request: ctx.request,\n" +
+        "      stash: ctx.stash,\n" +
+        "      prev: ctx.prev\n" +
+        "    }\n" +
+        "  };\n" +
+        "}\n" +
+        "export function response(ctx) {\n" +
+        "  if (ctx.error) {\n" +
+        "    util.error(ctx.error.message, ctx.error.type);\n" +
+        "  }\n" +
+        "  return ctx.result;\n" +
+        "}";
+
+    /// <summary>
     /// Generates a resolver manifest JSON from resolver information.
     /// </summary>
     public static string GenerateManifest(IEnumerable<ResolverInfo> resolvers)
@@ -51,14 +77,8 @@ public static class ResolverManifestGenerator
                 // Unit resolver - include data source and lambda info
                 sb.AppendLine($"      \"dataSource\": \"{EscapeJson(r.DataSource ?? "")}\",");
                 sb.AppendLine($"      \"lambdaFunctionName\": \"{EscapeJson(r.LambdaFunctionName ?? "")}\",");
-                sb.Append($"      \"lambdaFunctionLogicalId\": \"{EscapeJson(r.LambdaFunctionLogicalId ?? "")}\"");
-                
-                // Include resolver behavior flags
-                if (r.UsesLambdaContext)
-                {
-                    sb.AppendLine(",");
-                    sb.Append($"      \"usesLambdaContext\": true");
-                }
+                sb.AppendLine($"      \"lambdaFunctionLogicalId\": \"{EscapeJson(r.LambdaFunctionLogicalId ?? "")}\",");
+                sb.Append($"      \"resolverCode\": \"{EscapeJson(FullContextResolverCode)}\"");
                 
                 // Include Lambda Annotations configuration if present
                 if (!string.IsNullOrEmpty(r.ResourceName))
