@@ -5,9 +5,10 @@ namespace Oproto.Lambda.GraphQL.Examples;
 
 /// <summary>
 /// Example product type for GraphQL schema generation.
+/// Must be partial to receive the source-generated GraphQLFieldMap property.
 /// </summary>
 [GraphQLType("Product", Description = "A product in the catalog")]
-public class Product
+public partial class Product
 {
     [GraphQLField(Description = "Unique product identifier")]
     public string Id { get; set; } = string.Empty;

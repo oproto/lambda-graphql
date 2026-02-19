@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../Oproto.Lambda.GraphQL/Oproto.Lambda.GraphQL.csproj" />
+    <ProjectReference Include="../Oproto.Lambda.GraphQL.Runtime/Oproto.Lambda.GraphQL.Runtime.csproj" />
     <ProjectReference Include="../Oproto.Lambda.GraphQL.SourceGenerator/Oproto.Lambda.GraphQL.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="../Oproto.Lambda.GraphQL.Build/Oproto.Lambda.GraphQL.Build.csproj" />
   </ItemGroup>

@@ -17,6 +17,24 @@ public sealed class TypeInfo
     public List<string> UnionMembers { get; set; } = new();
     public List<string> InterfaceImplementations { get; set; } = new();
     public List<AppliedDirectiveInfo> Directives { get; set; } = new();
+
+    /// <summary>
+    /// The original C# class name (before any GraphQLType renaming).
+    /// Used by the source generator to emit partial class files.
+    /// </summary>
+    public string CSharpClassName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The fully qualified namespace of the C# class.
+    /// Used by the source generator to emit partial class files.
+    /// </summary>
+    public string CSharpNamespace { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Whether the C# class is declared as partial.
+    /// Required for emitting GraphQLFieldMap partial class files.
+    /// </summary>
+    public bool IsPartial { get; set; }
 }
 
 /// <summary>
@@ -42,6 +60,12 @@ public sealed class FieldInfo
     public bool IsDeprecated { get; set; }
     public string? DeprecationReason { get; set; }
     public List<AppliedDirectiveInfo> Directives { get; set; } = new();
+
+    /// <summary>
+    /// The original C# property name (before any GraphQLField renaming).
+    /// Used by the source generator to emit FieldNameMap entries.
+    /// </summary>
+    public string CSharpPropertyName { get; set; } = string.Empty;
 }
 
 /// <summary>

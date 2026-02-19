@@ -54,4 +54,16 @@ public static class DiagnosticDescriptors
         DiagnosticSeverity.Info,
         isEnabledByDefault: true,
         description: "The source generator could not determine the exact return type for a GraphQL operation and used a fallback.");
+
+    /// <summary>
+    /// Warning when a [GraphQLType] class is not declared as partial, preventing GraphQLFieldMap emission.
+    /// </summary>
+    public static readonly DiagnosticDescriptor NonPartialGraphQLType = new(
+        "LGQL005",
+        "GraphQLType class is not partial",
+        "Class '{0}' has [GraphQLType] but is not declared as partial. GraphQLFieldMap will not be generated. Declare the class as 'partial' to enable field map generation.",
+        "Oproto.Lambda.GraphQL",
+        DiagnosticSeverity.Warning,
+        isEnabledByDefault: true,
+        description: "The source generator cannot emit a GraphQLFieldMap property on a non-partial class. Declare the class as partial to enable automatic field name mapping.");
 }

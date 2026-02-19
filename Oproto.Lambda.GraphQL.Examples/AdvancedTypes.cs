@@ -26,7 +26,7 @@ public interface INode
 // Object implementing interface with AWS scalars
 [GraphQLType("User", Description = "A user in the system")]
 [GraphQLAuthDirective(AuthMode.UserPools)]
-public class User : INode
+public partial class User : INode
 {
     [GraphQLField(Description = "Unique user identifier")]
     public Guid Id { get; set; }
@@ -59,7 +59,7 @@ public class User : INode
 
 // Object implementing interface
 [GraphQLType("Order", Description = "An order in the system")]
-public class Order : INode
+public partial class Order : INode
 {
     [GraphQLField(Description = "Unique order identifier")]
     public Guid Id { get; set; }
