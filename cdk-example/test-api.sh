@@ -12,7 +12,7 @@ fi
 API_URL="$1"
 API_KEY="$2"
 
-echo "=== Testing Lambda.GraphQL API ==="
+echo "=== Testing Oproto.Lambda.GraphQL API ==="
 echo "API URL: $API_URL"
 echo ""
 

@@ -1,6 +1,6 @@
 # Attributes Reference
 
-This guide provides detailed documentation for each GraphQL attribute in Lambda.GraphQL, with practical examples and usage patterns.
+This guide provides detailed documentation for each GraphQL attribute in Oproto.Lambda.GraphQL, with practical examples and usage patterns.
 
 ## Table of Contents
 

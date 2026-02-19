@@ -1,19 +1,19 @@
 <Project>
   <PropertyGroup>
     <Version>0.1.0</Version>
-    <Authors>AWS Lambda GraphQL Team</Authors>
-    <Company>Amazon Web Services</Company>
-    <Product>Lambda.GraphQL</Product>
-    <Copyright>Copyright © Amazon Web Services</Copyright>
+    <Authors>Dan Guisinger</Authors>
+    <Company>Oproto Inc</Company>
+    <Product>Oproto.Lambda.GraphQL</Product>
+    <Copyright>Copyright © Oproto Inc</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/aws/lambda-graphql</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/aws/lambda-graphql</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/oproto/lambda-graphql</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/oproto/lambda-graphql</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
-    <WarningsNotAsErrors>NU1701</WarningsNotAsErrors>
+    <WarningsNotAsErrors>NU1701;NU1900</WarningsNotAsErrors>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>

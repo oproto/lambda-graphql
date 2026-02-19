@@ -1,0 +1,139 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "This template is partially managed by Amazon.Lambda.Annotations (v1.5.0.0).",
+  "Resources": {
+    "OprotoLambdaGraphQLExamplesAdvancedFunctionsSearchGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "Search"
+          }
+        }
+      }
+    },
+    "OprotoLambdaGraphQLExamplesAdvancedFunctionsGetUserGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "GetUser"
+          }
+        }
+      }
+    },
+    "OprotoLambdaGraphQLExamplesAdvancedFunctionsCreateUserGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "CreateUser"
+          }
+        }
+      }
+    },
+    "OprotoLambdaGraphQLExamplesAdvancedFunctionsOrderStatusChangedGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "OrderStatusChanged"
+          }
+        }
+      }
+    },
+    "OprotoLambdaGraphQLExamplesProductFunctionsGetProductGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 1024,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "GetProduct"
+          }
+        }
+      }
+    },
+    "OprotoLambdaGraphQLExamplesProductFunctionsCreateProductGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations"
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 15,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Oproto.Lambda.GraphQL.Examples",
+        "Environment": {
+          "Variables": {
+            "ANNOTATIONS_HANDLER": "CreateProduct"
+          }
+        }
+      }
+    }
+  }
+}

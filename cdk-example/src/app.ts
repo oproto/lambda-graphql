@@ -10,7 +10,7 @@ new GraphQLApiStack(app, 'LambdaGraphQLExampleStack', {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION || 'us-east-1',
   },
-  description: 'Lambda.GraphQL Example - AppSync API with Lambda resolvers',
+  description: 'Oproto.Lambda.GraphQL Example - AppSync API with Lambda resolvers',
 });
 
 app.synth();

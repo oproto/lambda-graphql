@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== Lambda.GraphQL CDK Deployment Script ==="
+echo "=== Oproto.Lambda.GraphQL CDK Deployment Script ==="
 echo ""
 
 # Check prerequisites
@@ -9,9 +9,9 @@ command -v dotnet >/dev/null 2>&1 || { echo "Error: dotnet CLI not found. Instal
 command -v node >/dev/null 2>&1 || { echo "Error: node not found. Install Node.js 18+."; exit 1; }
 command -v npm >/dev/null 2>&1 || { echo "Error: npm not found. Install Node.js 18+."; exit 1; }
 
-# Step 1: Build Lambda.GraphQL.Examples
-echo "Step 1: Building Lambda.GraphQL.Examples..."
-cd ../Lambda.GraphQL.Examples
+# Step 1: Build Oproto.Lambda.GraphQL.Examples
+echo "Step 1: Building Oproto.Lambda.GraphQL.Examples..."
+cd ../Oproto.Lambda.GraphQL.Examples
 dotnet build -c Release
 
 if [ ! -f "schema.graphql" ]; then
@@ -32,8 +32,8 @@ echo ""
 echo "Step 2: Copying generated files to CDK project..."
 cd ../cdk-example
 mkdir -p lib
-cp ../Lambda.GraphQL.Examples/schema.graphql lib/
-cp ../Lambda.GraphQL.Examples/resolvers.json lib/
+cp ../Oproto.Lambda.GraphQL.Examples/schema.graphql lib/
+cp ../Oproto.Lambda.GraphQL.Examples/resolvers.json lib/
 
 echo "✓ Copied schema.graphql to cdk-example/lib/"
 echo "✓ Copied resolvers.json to cdk-example/lib/"

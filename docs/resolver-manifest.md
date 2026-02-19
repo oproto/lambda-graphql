@@ -132,7 +132,7 @@ The CDK stack uses this manifest to:
 
 Each Lambda function is deployed with:
 ```typescript
-handler: 'Lambda.GraphQL.Examples', // Assembly name
+handler: 'Oproto.Lambda.GraphQL.Examples', // Assembly name
 memorySize: resolver.memorySize || 512, // From [LambdaFunction] or default
 timeout: cdk.Duration.seconds(resolver.timeout || 30),
 environment: {

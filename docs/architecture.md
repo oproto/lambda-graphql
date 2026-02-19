@@ -1,10 +1,10 @@
 # Architecture
 
-This document explains the architecture and design of Lambda.GraphQL, including how the source generator works, the data flow through the system, and key design decisions.
+This document explains the architecture and design of Oproto.Lambda.GraphQL, including how the source generator works, the data flow through the system, and key design decisions.
 
 ## Overview
 
-Lambda.GraphQL is built around three core components that work together to provide compile-time GraphQL schema generation:
+Oproto.Lambda.GraphQL is built around three core components that work together to provide compile-time GraphQL schema generation:
 
 1. **Attributes Library** - Provides GraphQL metadata through C# attributes
 2. **Source Generator** - Analyzes code and generates GraphQL schemas at compile time
@@ -47,14 +47,14 @@ Lambda.GraphQL is built around three core components that work together to provi
 
 ## Component Details
 
-### 1. Attributes Library (`Lambda.GraphQL`)
+### 1. Attributes Library (`Oproto.Lambda.GraphQL`)
 
 The attributes library provides the developer-facing API for defining GraphQL schemas through C# attributes.
 
 #### Package Structure
 
 ```
-Lambda.GraphQL/
+Oproto.Lambda.GraphQL/
 ├── Attributes/
 │   ├── GraphQLTypeAttribute.cs          # Type definitions
 │   ├── GraphQLFieldAttribute.cs         # Field metadata
@@ -74,8 +74,8 @@ Lambda.GraphQL/
 │   ├── GraphQLScalarAttribute.cs        # Custom scalar types
 │   └── GraphQLApplyDirectiveAttribute.cs # Apply directives
 └── build/
-    ├── Lambda.GraphQL.props             # MSBuild properties
-    └── Lambda.GraphQL.targets           # MSBuild targets
+    ├── Oproto.Lambda.GraphQL.props             # MSBuild properties
+    └── Oproto.Lambda.GraphQL.targets           # MSBuild targets
 ```
 
 #### Design Principles
@@ -85,7 +85,7 @@ Lambda.GraphQL/
 - **Type Safety** - Leverage C# type system for GraphQL schema validation
 - **Developer Experience** - IntelliSense support and compile-time validation
 
-### 2. Source Generator (`Lambda.GraphQL.SourceGenerator`)
+### 2. Source Generator (`Oproto.Lambda.GraphQL.SourceGenerator`)
 
 The source generator is a Roslyn-based incremental generator that analyzes C# code and produces GraphQL schemas.
 
@@ -170,7 +170,7 @@ public sealed class ResolverInfo
 }
 ```
 
-### 3. MSBuild Task (`Lambda.GraphQL.Build`)
+### 3. MSBuild Task (`Oproto.Lambda.GraphQL.Build`)
 
 The MSBuild task extracts the generated schema from the compiled assembly and writes it to output files.
 
@@ -271,9 +271,9 @@ public class ExtractGraphQLSchemaTask : Task
 - **Build Integration** - MSBuild tasks separate from runtime attributes
 
 **Packages**:
-- `Lambda.GraphQL` - Main package with attributes (runtime dependency)
-- `Lambda.GraphQL.SourceGenerator` - Source generator (build-time dependency)
-- `Lambda.GraphQL.Build` - MSBuild tasks (build-time dependency)
+- `Oproto.Lambda.GraphQL` - Main package with attributes (runtime dependency)
+- `Oproto.Lambda.GraphQL.SourceGenerator` - Source generator (build-time dependency)
+- `Oproto.Lambda.GraphQL.Build` - MSBuild tasks (build-time dependency)
 
 ### 4. AWS AppSync Focus
 
@@ -350,7 +350,7 @@ public string? RequiredField { get; set; } // → String!
 
 ### Incremental Generation
 
-Lambda.GraphQL uses Roslyn's incremental generator pattern for optimal performance:
+Oproto.Lambda.GraphQL uses Roslyn's incremental generator pattern for optimal performance:
 
 ```csharp
 public void Initialize(IncrementalGeneratorInitializationContext context)
@@ -467,7 +467,7 @@ public static class DiagnosticDescriptors
         "LGQ001",
         "Type extraction error",
         "Failed to extract GraphQL type information from '{0}': {1}",
-        "Lambda.GraphQL",
+        "Oproto.Lambda.GraphQL",
         DiagnosticSeverity.Error,
         isEnabledByDefault: true);
 }
@@ -611,4 +611,4 @@ Build-time performance monitoring:
 
 ---
 
-For implementation details and code examples, see the [Source Code](https://github.com/your-org/lambda-graphql) and [Contributing Guide](contributing.md).
+For implementation details and code examples, see the [Source Code](https://github.com/oproto/lambda-graphql) and [Contributing Guide](contributing.md).

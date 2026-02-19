@@ -29,7 +29,7 @@
 
 ```bash
 # Build solution
-dotnet build Lambda.GraphQL.sln
+dotnet build Oproto.Lambda.GraphQL.sln
 
 # Run tests
 dotnet test
@@ -46,7 +46,7 @@ dotnet build-server shutdown
 
 ## Important: Source Generator Development
 
-When making changes to `Lambda.GraphQL.SourceGenerator`, you MUST run `dotnet build-server shutdown` before rebuilding. The Roslyn compiler server caches loaded analyzers/generators, so changes won't take effect until the server is restarted.
+When making changes to `Oproto.Lambda.GraphQL.SourceGenerator`, you MUST run `dotnet build-server shutdown` before rebuilding. The Roslyn compiler server caches loaded analyzers/generators, so changes won't take effect until the server is restarted.
 
 ## Build Outputs
 - `schema.graphql` - Generated GraphQL SDL

@@ -1,6 +1,6 @@
 # Product Overview
 
-Lambda.GraphQL is a .NET library that generates GraphQL schemas from AWS Lambda functions for AWS AppSync.
+Oproto.Lambda.GraphQL is a .NET library that generates GraphQL schemas from AWS Lambda functions for AWS AppSync.
 
 ## Purpose
 - Generate GraphQL SDL schemas from C# types and Lambda function attributes

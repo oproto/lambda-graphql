@@ -1,9 +1,0 @@
-<Project>
-  <!-- This file is imported by projects that reference Lambda.GraphQL -->
-  <PropertyGroup>
-    <EnableLambdaGraphQLSchemaGeneration Condition="'$(EnableLambdaGraphQLSchemaGeneration)' == ''">true</EnableLambdaGraphQLSchemaGeneration>
-    <GraphQLSchemaOutputDirectory Condition="'$(GraphQLSchemaOutputDirectory)' == ''">$(OutputPath)</GraphQLSchemaOutputDirectory>
-    <GraphQLSchemaFileName Condition="'$(GraphQLSchemaFileName)' == ''">schema.graphql</GraphQLSchemaFileName>
-    <GraphQLResolverFileName Condition="'$(GraphQLResolverFileName)' == ''">resolvers.json</GraphQLResolverFileName>
-  </PropertyGroup>
-</Project>

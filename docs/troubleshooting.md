@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-This guide helps you resolve common issues when using Lambda.GraphQL.
+This guide helps you resolve common issues when using Oproto.Lambda.GraphQL.
 
 ## Table of Contents
 
@@ -34,13 +34,13 @@ dotnet build
 # 2. Check build output for extraction messages
 dotnet build -v detailed | grep "GraphQL"
 
-# 3. Verify Lambda.GraphQL package is referenced
-dotnet list package | grep Lambda.GraphQL
+# 3. Verify Oproto.Lambda.GraphQL package is referenced
+dotnet list package | grep Oproto.Lambda.GraphQL
 ```
 
 **Expected Output**:
 ```
-Lambda.GraphQL: Extracting schema from /path/to/bin/Debug/net6.0/YourProject.dll
+Oproto.Lambda.GraphQL: Extracting schema from /path/to/bin/Debug/net6.0/YourProject.dll
 Generated GraphQL schema: /path/to/schema.graphql
 Generated resolver manifest: /path/to/resolvers.json
 ```
@@ -481,13 +481,13 @@ dotnet test --no-build
 3. **Verify your setup**:
    ```bash
    dotnet --version # Should be 6.0+
-   dotnet list package | grep Lambda.GraphQL
+   dotnet list package | grep Oproto.Lambda.GraphQL
    ```
 
 ### Reporting Issues
 
 Include:
-- Lambda.GraphQL version
+- Oproto.Lambda.GraphQL version
 - .NET SDK version
 - Minimal reproduction code
 - Full error message

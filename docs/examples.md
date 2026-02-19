@@ -1,6 +1,6 @@
 # Examples
 
-This guide provides comprehensive examples of using Lambda.GraphQL, from basic usage to advanced features. All examples are working code that you can copy and adapt for your own projects.
+This guide provides comprehensive examples of using Oproto.Lambda.GraphQL, from basic usage to advanced features. All examples are working code that you can copy and adapt for your own projects.
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
-using Lambda.GraphQL.Attributes;
+using Oproto.Lambda.GraphQL.Attributes;
 
 // Basic GraphQL object type
 [GraphQLType("Product", Description = "A product in our catalog")]
@@ -826,4 +826,4 @@ Deploy the generated schema and resolvers to AWS AppSync to test the complete fu
 - **[Performance](performance.md)** - Optimize your GraphQL API for production
 - **[Troubleshooting](troubleshooting.md)** - Common issues and solutions
 
-All examples in this guide are based on working code from the Lambda.GraphQL.Examples project. You can find the complete source code in the repository for reference.
+All examples in this guide are based on working code from the Oproto.Lambda.GraphQL.Examples project. You can find the complete source code in the repository for reference.

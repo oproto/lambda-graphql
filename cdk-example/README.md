@@ -1,6 +1,6 @@
 # CDK Deployment Example
 
-This example demonstrates how to deploy the Lambda.GraphQL generated schema and resolvers to AWS AppSync using AWS CDK.
+This example demonstrates how to deploy the Oproto.Lambda.GraphQL generated schema and resolvers to AWS AppSync using AWS CDK.
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ cdk-example/
 
 ## Setup
 
-### 1. Build Lambda.GraphQL.Examples
+### 1. Build Oproto.Lambda.GraphQL.Examples
 
 ```bash
 # From repository root
-cd Lambda.GraphQL.Examples
+cd Oproto.Lambda.GraphQL.Examples
 dotnet build
 
 # Verify generated files
@@ -48,8 +48,8 @@ npm install
 
 ```bash
 # Copy generated schema and resolvers
-cp ../Lambda.GraphQL.Examples/schema.graphql lib/
-cp ../Lambda.GraphQL.Examples/resolvers.json lib/
+cp ../Oproto.Lambda.GraphQL.Examples/schema.graphql lib/
+cp ../Oproto.Lambda.GraphQL.Examples/resolvers.json lib/
 ```
 
 ## Deployment
@@ -120,7 +120,7 @@ The CDK stack creates:
 ### Lambda Annotations Handler Format
 
 For production deployment with Lambda Annotations:
-- Handler: `AssemblyName` (e.g., `Lambda.GraphQL.Examples`)
+- Handler: `AssemblyName` (e.g., `Oproto.Lambda.GraphQL.Examples`)
 - Environment variable: `ANNOTATIONS_HANDLER` set to method name
 - Project must be `OutputType=Exe` with `LambdaStartup` class
 - Requires `Amazon.Lambda.RuntimeSupport` package
@@ -205,9 +205,9 @@ jobs:
         with:
           dotnet-version: '6.0.x'
       
-      - name: Build Lambda.GraphQL.Examples
+      - name: Build Oproto.Lambda.GraphQL.Examples
         run: |
-          cd Lambda.GraphQL.Examples
+          cd Oproto.Lambda.GraphQL.Examples
           dotnet build
       
       - name: Setup Node.js
@@ -222,8 +222,8 @@ jobs:
         run: |
           cd cdk-example
           npm install
-          cp ../Lambda.GraphQL.Examples/schema.graphql lib/
-          cp ../Lambda.GraphQL.Examples/resolvers.json lib/
+          cp ../Oproto.Lambda.GraphQL.Examples/schema.graphql lib/
+          cp ../Oproto.Lambda.GraphQL.Examples/resolvers.json lib/
           cdk deploy --require-approval never
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -293,4 +293,4 @@ const dataSource = api.addLambdaDataSource('ProductsLambda', productFunction);
 
 - [AWS AppSync Documentation](https://docs.aws.amazon.com/appsync/)
 - [AWS CDK Documentation](https://docs.aws.amazon.com/cdk/)
-- [Lambda.GraphQL Documentation](../docs/README.md)
+- [Oproto.Lambda.GraphQL Documentation](../docs/README.md)

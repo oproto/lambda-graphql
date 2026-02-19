@@ -1,0 +1,56 @@
+<Project>
+  <!-- This file defines the MSBuild targets for Oproto.Lambda.GraphQL -->
+  
+  <PropertyGroup>
+    <GraphQLSchemaOutputDirectory Condition="'$(GraphQLSchemaOutputDirectory)' == ''">$(MSBuildProjectDirectory)</GraphQLSchemaOutputDirectory>
+    <GraphQLSchemaFileName Condition="'$(GraphQLSchemaFileName)' == ''">schema.graphql</GraphQLSchemaFileName>
+    <GraphQLResolverFileName Condition="'$(GraphQLResolverFileName)' == ''">resolvers.json</GraphQLResolverFileName>
+    <EnableLambdaGraphQLSchemaGeneration Condition="'$(EnableLambdaGraphQLSchemaGeneration)' == ''">true</EnableLambdaGraphQLSchemaGeneration>
+  </PropertyGroup>
+
+  <UsingTask TaskName="Oproto.Lambda.GraphQL.Build.ExtractGraphQLSchemaTask" 
+             AssemblyFile="$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll" 
+             Condition="Exists('$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll')" />
+
+  <!-- Development scenario: project reference - try current configuration -->
+  <UsingTask TaskName="Oproto.Lambda.GraphQL.Build.ExtractGraphQLSchemaTask" 
+             AssemblyFile="$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll" 
+             Condition="!Exists('$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll') AND Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll')" />
+  
+  <!-- Fallback to Release if current configuration doesn't exist -->
+  <UsingTask TaskName="Oproto.Lambda.GraphQL.Build.ExtractGraphQLSchemaTask" 
+             AssemblyFile="$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Release/net6.0/Oproto.Lambda.GraphQL.Build.dll" 
+             Condition="!Exists('$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Release/net6.0/Oproto.Lambda.GraphQL.Build.dll')" />
+  
+  <!-- Fallback to Debug if neither current nor Release exist -->
+  <UsingTask TaskName="Oproto.Lambda.GraphQL.Build.ExtractGraphQLSchemaTask" 
+             AssemblyFile="$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Debug/net6.0/Oproto.Lambda.GraphQL.Build.dll" 
+             Condition="!Exists('$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Release/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Debug/net6.0/Oproto.Lambda.GraphQL.Build.dll')" />
+
+  <!-- Additional fallback for different project structures -->
+  <UsingTask TaskName="Oproto.Lambda.GraphQL.Build.ExtractGraphQLSchemaTask" 
+             AssemblyFile="$(OutputPath)Oproto.Lambda.GraphQL.Build.dll" 
+             Condition="!Exists('$(MSBuildThisFileDirectory)../tools/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Release/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND !Exists('$(MSBuildThisFileDirectory)../../Oproto.Lambda.GraphQL.Build/bin/Debug/net6.0/Oproto.Lambda.GraphQL.Build.dll') AND Exists('$(OutputPath)Oproto.Lambda.GraphQL.Build.dll')" />
+
+  <Target Name="ExtractGraphQLSchema" 
+          AfterTargets="Build" 
+          Condition="'$(EnableLambdaGraphQLSchemaGeneration)' == 'true' AND '$(TargetPath)' != ''">
+    
+    <!-- Resolve output directory to full path -->
+    <PropertyGroup>
+      <_GraphQLOutputDir Condition="'$(GraphQLSchemaOutputDirectory)' != ''">$([System.IO.Path]::GetFullPath('$(GraphQLSchemaOutputDirectory)', '$(MSBuildProjectDirectory)'))</_GraphQLOutputDir>
+      <_GraphQLOutputDir Condition="'$(_GraphQLOutputDir)' == ''">$(MSBuildProjectDirectory)</_GraphQLOutputDir>
+    </PropertyGroup>
+    
+    <Message Text="Oproto.Lambda.GraphQL: Extracting schema from $(TargetPath) to $(_GraphQLOutputDir)" Importance="high" />
+    
+    <ExtractGraphQLSchemaTask AssemblyPath="$(TargetPath)"
+                              OutputDirectory="$(_GraphQLOutputDir)"
+                              IntermediateOutputPath="$(IntermediateOutputPath)"
+                              CompilerGeneratedFilesOutputPath="$(CompilerGeneratedFilesOutputPath)"
+                              SchemaFileName="$(GraphQLSchemaFileName)"
+                              ResolverFileName="$(GraphQLResolverFileName)" />
+    
+  </Target>
+
+</Project>

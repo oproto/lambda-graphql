@@ -1,6 +1,6 @@
-# Contributing to Lambda.GraphQL
+# Contributing to Oproto.Lambda.GraphQL
 
-Thank you for your interest in contributing to Lambda.GraphQL! This guide will help you get started with development, testing, and submitting contributions.
+Thank you for your interest in contributing to Oproto.Lambda.GraphQL! This guide will help you get started with development, testing, and submitting contributions.
 
 ## Table of Contents
 
@@ -46,7 +46,7 @@ git clone https://github.com/YOUR-USERNAME/lambda-graphql.git
 cd lambda-graphql
 
 # Add upstream remote
-git remote add upstream https://github.com/dguisinger/lambda-graphql.git
+git remote add upstream https://github.com/oproto/lambda-graphql.git
 ```
 
 ---
@@ -66,7 +66,7 @@ dotnet build
 dotnet test
 
 # Verify example project builds and generates schema
-cd Lambda.GraphQL.Examples
+cd Oproto.Lambda.GraphQL.Examples
 dotnet build
 ls -la schema.graphql resolvers.json
 cd ..
@@ -81,14 +81,14 @@ cd ..
 
 #### Visual Studio
 
-1. Open `Lambda.GraphQL.sln`
+1. Open `Oproto.Lambda.GraphQL.sln`
 2. Set build configuration to Debug
 3. Enable "Show All Files" in Solution Explorer
 4. View generated files in `obj/` directories
 
 #### Rider
 
-1. Open `Lambda.GraphQL.sln`
+1. Open `Oproto.Lambda.GraphQL.sln`
 2. Enable "Show All Files" in Solution view
 3. Settings → Build, Execution, Deployment → Toolset and Build
    - Use MSBuild version: .NET SDK
@@ -106,18 +106,18 @@ cd ..
 ## Project Structure
 
 ```
-Lambda.GraphQL/
-├── Lambda.GraphQL/                    # Main package
+Oproto.Lambda.GraphQL/
+├── Oproto.Lambda.GraphQL/                    # Main package
 │   ├── Attributes/                    # GraphQL attribute definitions
 │   │   ├── GraphQLTypeAttribute.cs
 │   │   ├── GraphQLFieldAttribute.cs
 │   │   ├── GraphQLOperationAttributes.cs
 │   │   └── ...
 │   └── build/                         # MSBuild integration files
-│       ├── Lambda.GraphQL.props
-│       └── Lambda.GraphQL.targets
+│       ├── Oproto.Lambda.GraphQL.props
+│       └── Oproto.Lambda.GraphQL.targets
 │
-├── Lambda.GraphQL.SourceGenerator/    # Roslyn source generator
+├── Oproto.Lambda.GraphQL.SourceGenerator/    # Roslyn source generator
 │   ├── GraphQLSchemaGenerator.cs      # Main generator entry point
 │   ├── SdlGenerator.cs                # SDL generation logic
 │   ├── TypeMapper.cs                  # C# to GraphQL type mapping
@@ -131,16 +131,16 @@ Lambda.GraphQL/
 │       ├── ResolverInfo.cs
 │       └── ...
 │
-├── Lambda.GraphQL.Build/              # MSBuild task
+├── Oproto.Lambda.GraphQL.Build/              # MSBuild task
 │   └── ExtractGraphQLSchemaTask.cs    # Schema extraction task
 │
-├── Lambda.GraphQL.Tests/              # Unit tests
+├── Oproto.Lambda.GraphQL.Tests/              # Unit tests
 │   ├── TypeMapperTests.cs
 │   ├── SdlGeneratorTests.cs
 │   ├── ResolverManifestTests.cs
 │   └── ...
 │
-├── Lambda.GraphQL.Examples/           # Example project
+├── Oproto.Lambda.GraphQL.Examples/           # Example project
 │   ├── Product.cs
 │   ├── ProductFunctions.cs
 │   └── AdvancedTypes.cs
@@ -156,11 +156,11 @@ Lambda.GraphQL/
 
 | Package | Purpose | Key Files |
 |---------|---------|-----------|
-| `Lambda.GraphQL` | Attributes and build integration | Attributes/*.cs, build/*.targets |
-| `Lambda.GraphQL.SourceGenerator` | Compile-time schema generation | GraphQLSchemaGenerator.cs, SdlGenerator.cs |
-| `Lambda.GraphQL.Build` | Post-build schema extraction | ExtractGraphQLSchemaTask.cs |
-| `Lambda.GraphQL.Tests` | Unit and integration tests | *Tests.cs |
-| `Lambda.GraphQL.Examples` | Example usage and validation | *.cs |
+| `Oproto.Lambda.GraphQL` | Attributes and build integration | Attributes/*.cs, build/*.targets |
+| `Oproto.Lambda.GraphQL.SourceGenerator` | Compile-time schema generation | GraphQLSchemaGenerator.cs, SdlGenerator.cs |
+| `Oproto.Lambda.GraphQL.Build` | Post-build schema extraction | ExtractGraphQLSchemaTask.cs |
+| `Oproto.Lambda.GraphQL.Tests` | Unit and integration tests | *Tests.cs |
+| `Oproto.Lambda.GraphQL.Examples` | Example usage and validation | *.cs |
 
 ---
 
@@ -187,7 +187,7 @@ dotnet build
 dotnet test
 
 # Test with example project
-cd Lambda.GraphQL.Examples
+cd Oproto.Lambda.GraphQL.Examples
 dotnet build
 cat schema.graphql
 cd ..
@@ -372,7 +372,7 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 
 // 2. Namespace
-namespace Lambda.GraphQL.SourceGenerator;
+namespace Oproto.Lambda.GraphQL.SourceGenerator;
 
 // 3. Class documentation
 /// <summary>
@@ -477,7 +477,7 @@ git push origin feature/your-feature-name
 
 ### Important Notes
 
-**CRITICAL**: After making changes to `Lambda.GraphQL.SourceGenerator`, you MUST run:
+**CRITICAL**: After making changes to `Oproto.Lambda.GraphQL.SourceGenerator`, you MUST run:
 
 ```bash
 dotnet build-server shutdown
@@ -491,10 +491,10 @@ The Roslyn compiler server caches loaded analyzers/generators, so changes won't 
 
 ```bash
 # Find generated files
-find Lambda.GraphQL.Examples/obj -name "*GraphQLSchemaGenerator*.cs"
+find Oproto.Lambda.GraphQL.Examples/obj -name "*GraphQLSchemaGenerator*.cs"
 
 # View generated file
-cat Lambda.GraphQL.Examples/obj/Debug/net6.0/generated/Lambda.GraphQL.SourceGenerator/Lambda.GraphQL.SourceGenerator.GraphQLSchemaGenerator/GraphQLSchema.g.cs
+cat Oproto.Lambda.GraphQL.Examples/obj/Debug/net6.0/generated/Oproto.Lambda.GraphQL.SourceGenerator/Oproto.Lambda.GraphQL.SourceGenerator.GraphQLSchemaGenerator/GraphQLSchema.g.cs
 ```
 
 #### Enable Generator Logging
@@ -509,7 +509,7 @@ cat Lambda.GraphQL.Examples/obj/Debug/net6.0/generated/Lambda.GraphQL.SourceGene
 
 #### Debug with Visual Studio
 
-1. Set `Lambda.GraphQL.SourceGenerator` as startup project
+1. Set `Oproto.Lambda.GraphQL.SourceGenerator` as startup project
 2. Right-click project → Properties → Debug
 3. Launch profile: Roslyn Component
 4. Set breakpoints in generator code
@@ -557,4 +557,4 @@ Follow [Semantic Versioning](https://semver.org/):
 
 ---
 
-Thank you for contributing to Lambda.GraphQL! 🎉
+Thank you for contributing to Oproto.Lambda.GraphQL! 🎉

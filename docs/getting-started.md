@@ -1,6 +1,6 @@
-# Getting Started with Lambda.GraphQL
+# Getting Started with Oproto.Lambda.GraphQL
 
-This guide will help you get up and running with Lambda.GraphQL in just a few minutes. You'll learn how to install the library, create your first GraphQL types, and generate a complete GraphQL schema for AWS AppSync.
+This guide will help you get up and running with Oproto.Lambda.GraphQL in just a few minutes. You'll learn how to install the library, create your first GraphQL types, and generate a complete GraphQL schema for AWS AppSync.
 
 ## Prerequisites
 
@@ -13,44 +13,21 @@ Before you begin, make sure you have:
 
 ## Installation
 
-> **Note**: This is a hackathon submission. For evaluation, use project references as shown below. Package will be published to NuGet after evaluation.
-
-### Step 1: Clone and Build (For Hackathon Evaluation)
+### Install via NuGet
 
 ```bash
-# Clone the repository
-git clone https://github.com/dguisinger/lambda-graphql
-cd lambda-graphql
-
-# Build the solution
-dotnet build
-
-# Run tests to verify
-dotnet test
-```
-
-### Step 2: Create Your Project
-
-```bash
-# Create a new Lambda project
-dotnet new lambda.EmptyFunction -n MyGraphQLApi
-cd MyGraphQLApi
-
-# Add project reference (instead of NuGet package)
-dotnet add reference ../lambda-graphql/Lambda.GraphQL/Lambda.GraphQL.csproj
-```
-
-### Step 3: Install Dependencies
-
-```bash
+dotnet add package Oproto.Lambda.GraphQL
 dotnet add package Amazon.Lambda.Annotations
 ```
 
-> **Note**: For hackathon evaluation, use project references instead of NuGet packages. See installation instructions above.
+This will automatically install:
+- `Oproto.Lambda.GraphQL` - Main package with attributes
+- `Oproto.Lambda.GraphQL.SourceGenerator` - Roslyn source generator
+- `Oproto.Lambda.GraphQL.Build` - MSBuild tasks for schema extraction
 
 ## What Gets Generated
 
-When you build your project, Lambda.GraphQL generates several files:
+When you build your project, Oproto.Lambda.GraphQL generates several files:
 
 ### 1. GraphQL Schema (`schema.graphql`)
 The complete GraphQL SDL schema based on your C# types and Lambda functions.
@@ -68,19 +45,7 @@ You can inspect these files to understand how the generation works:
 find YourProject/obj -name "*.cs" -path "*GraphQLSchemaGenerator*"
 ```
 
-### After NuGet Publication
-
-```bash
-# Future installation (post-hackathon)
-dotnet add package Lambda.GraphQL
-```
-
-This will automatically install:
-- `Lambda.GraphQL` - Main package with attributes
-- `Lambda.GraphQL.SourceGenerator` - Roslyn source generator
-- `Lambda.GraphQL.Build` - MSBuild tasks for schema extraction
-
-### Step 3: Verify Installation
+### Verify Installation
 
 Build your project to ensure everything is installed correctly:
 
@@ -102,7 +67,7 @@ Create a new file `Types.cs`:
 using System;
 using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
-using Lambda.GraphQL.Attributes;
+using Oproto.Lambda.GraphQL.Attributes;
 
 namespace MyGraphQLApi;
 
@@ -173,7 +138,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amazon.Lambda.Annotations;
-using Lambda.GraphQL.Attributes;
+using Oproto.Lambda.GraphQL.Attributes;
 
 namespace MyGraphQLApi;
 
@@ -365,7 +330,7 @@ type Mutation {
 
 ### Type Mappings
 
-Lambda.GraphQL automatically maps C# types to GraphQL types:
+Oproto.Lambda.GraphQL automatically maps C# types to GraphQL types:
 
 | C# Type | GraphQL Type |
 |---------|--------------|
@@ -392,7 +357,7 @@ GraphQL nullability is the inverse of C#:
 
 ## Next Steps
 
-Congratulations! You've successfully created your first GraphQL schema with Lambda.GraphQL. Here's what you can explore next:
+Congratulations! You've successfully created your first GraphQL schema with Oproto.Lambda.GraphQL. Here's what you can explore next:
 
 ### 1. Advanced Features
 - **[Union Types](advanced-features.md#union-types)** - Return different types from a single field
@@ -438,7 +403,7 @@ If the schema files aren't generated:
 
 - Check the [Troubleshooting Guide](troubleshooting.md)
 - Review the [Examples](examples.md) for more code samples
-- Open an issue on [GitHub](https://github.com/your-org/lambda-graphql/issues)
+- Open an issue on [GitHub](https://github.com/oproto/lambda-graphql/issues)
 
 ---
 

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>Oproto.Lambda.GraphQL.Build</PackageId>
+    <AssemblyName>Oproto.Lambda.GraphQL.Build</AssemblyName>
+    <RootNamespace>Oproto.Lambda.GraphQL.Build</RootNamespace>
+    <Description>MSBuild task for Oproto.Lambda.GraphQL schema extraction</Description>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.5.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" />
+    <PackageReference Include="System.Reflection.MetadataLoadContext" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>

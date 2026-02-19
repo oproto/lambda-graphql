@@ -1,6 +1,6 @@
 # API Reference
 
-This document provides comprehensive API documentation for all classes, attributes, and methods in the Lambda.GraphQL library.
+This document provides comprehensive API documentation for all classes, attributes, and methods in the Oproto.Lambda.GraphQL library.
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ This document provides comprehensive API documentation for all classes, attribut
 
 Marks a class, interface, or enum as a GraphQL type.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Class`, `Interface`, `Enum`
 
 #### Constructors
@@ -81,7 +81,7 @@ public enum Category { }
 
 Marks a property or field as a GraphQL field.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Property`, `Field`
 
 #### Constructors
@@ -119,7 +119,7 @@ public class Product
 
 Marks a method parameter as a GraphQL argument.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Parameter`
 
 #### Constructors
@@ -155,7 +155,7 @@ public async Task<Product> GetProduct(
 
 Marks a Lambda function as a GraphQL query operation.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Method`
 
 #### Constructors
@@ -187,7 +187,7 @@ public async Task<List<Product>> ListProducts() { }
 
 Marks a Lambda function as a GraphQL mutation operation.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Method`
 
 #### Constructors
@@ -215,7 +215,7 @@ public async Task<Product> CreateProduct(CreateProductInput input) { }
 
 Marks a Lambda function as a GraphQL subscription operation.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Method`
 
 #### Constructors
@@ -247,7 +247,7 @@ public async Task<Order> OrderStatusChanged(Guid orderId) { }
 
 Marks a class as a GraphQL union type with specified member types.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Class`
 
 #### Constructors
@@ -283,7 +283,7 @@ public async Task<List<object>> Search(string term)
 
 Provides metadata for GraphQL enum values.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Field` (enum members)
 
 #### Constructors
@@ -325,7 +325,7 @@ public enum OrderStatus
 
 Excludes a property or field from the GraphQL schema.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Property`, `Field`
 
 #### Examples
@@ -345,7 +345,7 @@ public class Product
 
 Overrides nullability to make a field non-null in GraphQL.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Property`, `Field`
 
 #### Examples
@@ -363,7 +363,7 @@ public class Product
 
 Marks a field as an AWS timestamp scalar (AWSTimestamp).
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Property`, `Field`
 
 #### Examples
@@ -385,7 +385,7 @@ public class User
 
 Defines a custom GraphQL directive.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Assembly`  
 **AllowMultiple**: `true`
 
@@ -416,7 +416,7 @@ public GraphQLDirectiveAttribute(string name)
 
 Applies a directive to a GraphQL type or field.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Class`, `Property`, `Method`, `Field`  
 **AllowMultiple**: `true`
 
@@ -445,7 +445,7 @@ public string AdminOnlyField { get; set; }
 
 Applies AWS authentication directives to GraphQL types or fields.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Class`, `Property`, `Method`, `Field`, `Enum`  
 **AllowMultiple**: `true`
 
@@ -483,7 +483,7 @@ public string SensitiveData { get; set; }
 
 Provides assembly-level schema configuration.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Assembly`
 
 #### Constructors
@@ -512,7 +512,7 @@ public GraphQLSchemaAttribute(string name)
 
 Configures resolver settings for GraphQL operations.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Method`
 
 #### Properties
@@ -543,7 +543,7 @@ public async Task<Order> ProcessOrder(OrderInput input) { }
 
 Marks a class as a custom GraphQL scalar type.
 
-**Namespace**: `Lambda.GraphQL.Attributes`  
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`  
 **Targets**: `Class`, `Struct`
 
 #### Constructors
@@ -574,7 +574,7 @@ public class CustomDateTime { }
 
 Specifies the kind of GraphQL type.
 
-**Namespace**: `Lambda.GraphQL.Attributes`
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`
 
 #### Values
 
@@ -590,7 +590,7 @@ Specifies the kind of GraphQL type.
 
 AWS AppSync authentication modes.
 
-**Namespace**: `Lambda.GraphQL.Attributes`
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`
 
 #### Values
 
@@ -606,7 +606,7 @@ AWS AppSync authentication modes.
 
 Specifies where a directive can be applied.
 
-**Namespace**: `Lambda.GraphQL.Attributes`
+**Namespace**: `Oproto.Lambda.GraphQL.Attributes`
 
 #### Values
 
@@ -636,7 +636,7 @@ Specifies where a directive can be applied.
 
 ## Type Mappings
 
-Lambda.GraphQL automatically maps C# types to GraphQL types:
+Oproto.Lambda.GraphQL automatically maps C# types to GraphQL types:
 
 | C# Type | GraphQL Type | Notes |
 |---------|--------------|-------|

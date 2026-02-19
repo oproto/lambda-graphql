@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Oproto.Lambda.GraphQL.Examples</AssemblyName>
+    <RootNamespace>Oproto.Lambda.GraphQL.Examples</RootNamespace>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+    <AWSProjectType>Lambda</AWSProjectType>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Annotations" Version="1.5.0" />
+    <PackageReference Include="Amazon.Lambda.Core" Version="2.2.0" />
+    <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.10.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Oproto.Lambda.GraphQL/Oproto.Lambda.GraphQL.csproj" />
+    <ProjectReference Include="../Oproto.Lambda.GraphQL.SourceGenerator/Oproto.Lambda.GraphQL.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="../Oproto.Lambda.GraphQL.Build/Oproto.Lambda.GraphQL.Build.csproj" />
+  </ItemGroup>
+
+  <!-- Import Oproto.Lambda.GraphQL build targets for development (normally auto-imported via NuGet) -->
+  <Import Project="../Oproto.Lambda.GraphQL/build/Oproto.Lambda.GraphQL.props" />
+  <Import Project="../Oproto.Lambda.GraphQL/build/Oproto.Lambda.GraphQL.targets" />
+
+</Project>

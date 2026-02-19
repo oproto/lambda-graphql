@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Oproto.Lambda.GraphQL</PackageId>
+    <AssemblyName>Oproto.Lambda.GraphQL</AssemblyName>
+    <RootNamespace>Oproto.Lambda.GraphQL</RootNamespace>
+    <Description>Generate GraphQL schemas from AWS Lambda functions using AppSync</Description>
+    <PackageTags>aws;lambda;graphql;appsync;schema;generator</PackageTags>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="build/Oproto.Lambda.GraphQL.props" Pack="true" PackagePath="build\" />
+    <None Include="build/Oproto.Lambda.GraphQL.targets" Pack="true" PackagePath="build\" />
+  </ItemGroup>
+
+  <!-- Bundle source generator and build task as analyzers -->
+  <ItemGroup>
+    <None Include="../Oproto.Lambda.GraphQL.SourceGenerator/bin/$(Configuration)/netstandard2.0/Oproto.Lambda.GraphQL.SourceGenerator.dll" Pack="true" PackagePath="analyzers/dotnet/cs/Oproto.Lambda.GraphQL.SourceGenerator.dll" />
+    <None Include="../Oproto.Lambda.GraphQL.Build/bin/$(Configuration)/net6.0/Oproto.Lambda.GraphQL.Build.dll" Pack="true" PackagePath="tools/Oproto.Lambda.GraphQL.Build.dll" />
+  </ItemGroup>
+
+</Project>

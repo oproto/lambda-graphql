@@ -41,14 +41,14 @@ export class GraphQLApiStack extends cdk.Stack {
     const schemaPath = path.join(__dirname, '../lib/schema.graphql');
     
     if (!fs.existsSync(schemaPath)) {
-      throw new Error(`Schema file not found: ${schemaPath}. Run 'dotnet build' in Lambda.GraphQL.Examples first.`);
+      throw new Error(`Schema file not found: ${schemaPath}. Run 'dotnet build' in Oproto.Lambda.GraphQL.Examples first.`);
     }
 
     // Read resolver manifest
     const resolversPath = path.join(__dirname, '../lib/resolvers.json');
 
     if (!fs.existsSync(resolversPath)) {
-      throw new Error(`Resolvers manifest not found: ${resolversPath}. Run 'dotnet build' in Lambda.GraphQL.Examples first.`);
+      throw new Error(`Resolvers manifest not found: ${resolversPath}. Run 'dotnet build' in Oproto.Lambda.GraphQL.Examples first.`);
     }
 
     const resolverManifest: ResolverManifest = JSON.parse(fs.readFileSync(resolversPath, 'utf-8'));
@@ -96,8 +96,8 @@ export class GraphQLApiStack extends cdk.Stack {
       // Lambda Annotations uses assembly name as handler with ANNOTATIONS_HANDLER env var
       const lambdaFunction = new lambda.Function(this, functionId, {
         runtime: lambda.Runtime.DOTNET_6,
-        handler: 'Lambda.GraphQL.Examples', // Assembly name for Lambda Annotations
-        code: lambda.Code.fromAsset(path.join(__dirname, '../../Lambda.GraphQL.Examples/bin/Release/net6.0')),
+        handler: 'Oproto.Lambda.GraphQL.Examples', // Assembly name for Lambda Annotations
+        code: lambda.Code.fromAsset(path.join(__dirname, '../../Oproto.Lambda.GraphQL.Examples/bin/Release/net6.0')),
         role: lambdaRole,
         timeout: cdk.Duration.seconds(resolver.timeout || 30), // Use Lambda Annotations config or default
         memorySize: resolver.memorySize || 512, // Use Lambda Annotations config or default

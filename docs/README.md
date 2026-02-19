@@ -1,6 +1,6 @@
-# Lambda.GraphQL Documentation
+# Oproto.Lambda.GraphQL Documentation
 
-Welcome to the Lambda.GraphQL documentation! This library enables you to generate GraphQL schemas from C# Lambda functions for AWS AppSync with compile-time type safety and automatic resolver configuration.
+Welcome to the Oproto.Lambda.GraphQL documentation! This library enables you to generate GraphQL schemas from C# Lambda functions for AWS AppSync with compile-time type safety and automatic resolver configuration.
 
 ## 📚 Documentation Sections
 
@@ -78,10 +78,10 @@ This automatically generates:
 
 ## 🤝 Community
 
-- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/your-org/lambda-graphql/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/your-org/lambda-graphql/discussions)
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/oproto/lambda-graphql/issues)
+- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/oproto/lambda-graphql/discussions)
 - **Contributing**: See our [Contributing Guide](contributing.md) to get involved
 
 ---
 
-*Lambda.GraphQL is designed to make GraphQL development with AWS AppSync as seamless and type-safe as possible for .NET developers.*
+*Oproto.Lambda.GraphQL is designed to make GraphQL development with AWS AppSync as seamless and type-safe as possible for .NET developers.*
