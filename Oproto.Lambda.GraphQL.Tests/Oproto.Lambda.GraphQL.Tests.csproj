@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -24,6 +24,7 @@
     <ProjectReference Include="../Oproto.Lambda.GraphQL.SourceGenerator/Oproto.Lambda.GraphQL.SourceGenerator.csproj" />
     <ProjectReference Include="../Oproto.Lambda.GraphQL.Build/Oproto.Lambda.GraphQL.Build.csproj" />
     <ProjectReference Include="../Oproto.Lambda.GraphQL.Runtime/Oproto.Lambda.GraphQL.Runtime.csproj" />
+    <ProjectReference Include="../Oproto.Lambda.GraphQL.Client/Oproto.Lambda.GraphQL.Client.csproj" />
   </ItemGroup>
 
 </Project>

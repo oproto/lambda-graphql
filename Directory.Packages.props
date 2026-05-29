@@ -14,5 +14,7 @@
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
     <PackageVersion Include="FsCheck.Xunit" Version="2.16.5" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
+    <PackageVersion Include="AWSSDK.Core" Version="4.0.3.14" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
   </ItemGroup>
 </Project>
